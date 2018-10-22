@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: shiro-client
+  profiles:
+    active: dev
+  thymeleaf:
+    cache: true # Enable template caching.
+    check-template: true # Check that the template exists before rendering it.
+    check-template-location: true # Check that the templates location exists.
+    content-type: text/html # Content-Type value.
+    enabled: true # Enable MVC Thymeleaf view resolution.
+    encoding: UTF-8 # Template encoding.
+    mode: HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
+    prefix: classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
+    suffix: .html
+  aop:
+    proxy-target-class: true
+    auto: true
+
+cas:
+  prefixUrl: https://passport.toceansoft.com:8443/cas
+  loginUrl: ${cas.prefixUrl}/login
+  serviceUrl: https://renji.zy.com:${server.port}
+  callbackUrl: ${cas.serviceUrl}/callback
+debug: true
+server:
+  port: 8083
+security.require-ssl: true
+server.ssl.key-store-type: PKCS12
+server.ssl.key-store: classpath:zy.com.p12
+server.ssl.key-store-password: tocean788  
+github:
+# 本系统已经绑定的id
+  bindId:
+    #9932775
+    - '9932776'
+#256 bit
+#[A256CBC+HS512, A256CBC-HS512]
+jwt: 
+  salt: tocean-to-be-no1tocean-to-be-no1
+  algorithm: ES512
+  

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+    </script>
+    <script>
+
+
+        function login() {
+            var aj = $.ajax( {
+                url:'http://localhost:8080/ssm/login?username=admin&password=123456',// 跳转到 action
+                data:{username: "love2017", password: "123456",rememebeMe:true},
+                type:'post',
+                cache:false,
+                dataType:'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(sdata,textStatus,jqXHR) {
+                    console.log(sdata);
+
+                },
+                error:function(jqXHR,textStatus,errorThrown) {
+                    console.log("error:");
+                    console.log(jqXHR+":"+textStatus+":"+errorThrown);
+                    console.log(jqXHR.status);
+                }
+
+            });
+
+        }
+		        function loginCas() {
+            var aj = $.ajax( {
+                url:'https://passport.toceansoft.com:8443/cas/v2/ticket',// 跳转到 action
+                data:{username: "admin", password: "123",service:"http://localhost:8083"},
+                type:'post',
+                cache:false,
+                //async: false,
+                contentType:'application/x-www-form-urlencoded',
+                dataType:'json',
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
+                success:function(sdata,textStatus,jqXHR) {
+                    console.log(sdata);
+                    console.log(jqXHR);
+
+                },
+                error:function(jqXHR,textStatus,errorThrown) {
+                    console.log("error:");
+                    console.log(jqXHR+":"+textStatus+":"+errorThrown);
+                    console.log(jqXHR.status);
+                }
+
+            });
+
+        }
+		        
+		        function loginCasSilence() {
+		            var aj = $.ajax( {
+		                url:'https://passport.toceansoft.com:8443/cas/v2/ticket',// 跳转到 action
+		                data:{service:"http://localhost:8083"},
+		                type:'get',
+		                cache:false,
+		                //async: false,
+		                //contentType:'application/x-www-form-urlencoded',
+		                dataType:'json',
+		                crossDomain: true,
+		                xhrFields: {
+		                    withCredentials: true
+		                },
+		                success:function(sdata,textStatus,jqXHR) {
+		                    console.log(sdata);
+		                    console.log(jqXHR);
+
+		                },
+		                error:function(jqXHR,textStatus,errorThrown) {
+		                    console.log("error:");
+		                    console.log(jqXHR+":"+textStatus+":"+errorThrown);
+		                    console.log(jqXHR.status);
+		                    console.log(jqXHR);
+		                }
+
+		            });
+
+		        }
+		        
+        function testgetUserId() {
+            $.ajax({
+                url:"http://localhost:8080/ssm/sysuser/queryById?id=1",
+
+                xhrFields: {
+                    withCredentials: true
+                },
+                dataType: 'json',
+                type: "get",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        function logout() {
+            $.ajax({
+                url:"http://localhost:8080/ssm/logout",
+
+                xhrFields: {
+                    withCredentials: true
+                },
+                dataType: 'json',
+                type: "get",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+        var user= {
+            username: '999999',
+            password: '888',
+            roleIds:'2,5',
+            //roleIdsList: [1, 2, 5],
+            locked: 0
+        };
+
+        var roleIds=[4,5];
+
+        function test(url,data,mds) {
+            $.ajax({
+                url: url,// 跳转到 action
+                data: { usernames:['abc','www']},
+                type:mds,
+                cache: false,
+                dataType: 'json',
+                //contentType:"application/json",
+                traditional:true,//传统的方式来序列化数据
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (sdata, textStatus, jqXHR) {
+                    console.log(sdata);
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log("error:");
+                    console.log(jqXHR + ":" + textStatus + ":" + errorThrown);
+                    console.log(jqXHR.status);
+           
+                }
+
+            });
+        }
+        var data;
+        //JSON.stringify(roleIds);
+        var role={
+            id:5,
+            role:'n20',
+            description:'普通用户2',
+            resourceIds:'1,2,3',
+            available:1
+        };
+        role= {roleId:2};
+        data=user;
+        datab={
+            usernames:['aaa','www']
+        };
+        data=datab;
+        var url='http://localhost:8080/ssm/zsuSysUser/deleteAny';
+        url='http://localhost:8080/ssm/zsuSysRole/deleteAny';
+        url='http://localhost:8080/ssm/zsuSysRole/list';
+        url='http://localhost:8080/ssm/zsuSysUser/list';
+        url='http://localhost:8080/ssm/zsuSysUser/create';
+        url='http://localhost:8080/ssm/zsuSysResource/list';
+        url='http://localhost:8080/springmvcdemo1/rest/get';
+       // login();
+        //testgetUserId();
+        var mds="post";
+         //test(url,data,mds);
+        //logout();
+		loginCas();
+		loginCasSilence();
+    </script>
+
+</head>
+
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ 版权所有.(c)2010-2018. 拓胜科技 -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 5.1.6 support but 5.3.3 not support -->
+	<!-- import resource="classpath*:profile/${spring.profiles.active}/application-${spring.profiles.active}.xml"></import -->
+</beans>

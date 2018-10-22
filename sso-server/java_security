@@ -1,0 +1,22 @@
+当我们使用 jose4j 时在JDK 1.7 的版本中会出现 A256GCM is an unknown, unsupported or unavailable enc algorithm (not one of [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512]). 这样的错误。 通过 Debug 会发现更多的错误信息 A256GCMKW is not available (org.jose4j.lang.JoseException: java.security.NoSuchAlgorithmException: Cannot find any provider supporting AES/GCM/NoPadding; caused by: java.security.NoSuchAlgorithmException: Cannot find any provider supporting AES/GCM/NoPadding).
+这时便会知道是由于在 JDK 1.7 不支持的加密或解密方式，要解决这样的问题，可以直接升级到 JDK 1.8， 同时更新 Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files 8 Download。
+当然升级JDK在开发环境当然可以，但是在产品中却不能那么直接，这时可以采用第二种方式，引进第三方的包来为其提供加密或解密的支持，这里可以使用 Bouncy Castle，将其jar添加到Maven中：
+
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcprov-jdk15on</artifactId>
+    <version>1.59</version>
+</dependency>
+接下来在启用加密或解密的前添加下面的代码即可：
+Security.addProvider(new BouncyCastleProvider()); //support jdk7
+{
+    "timestamp": 1539780467159,
+    "status": 500,
+    "error": "Internal Server Error",
+    "exception": "java.lang.IllegalArgumentException",
+    "message": "Is JCE Unlimited Strength Jurisdiction Policy installed? AES is an unknown, unsupported or unavailable enc algorithm 
+    (not one of [A128CBC-HS256, A192CBC-HS384, A256CBC-HS512, A128GCM, A192GCM, A256GCM]).",
+    "path": "/cas/v1/st"
+}
+#Is JCE Unlimited Strength Jurisdiction Policy installed? Invalid key for dir with A256CBC-HS512,
+ expected a 512 bit key but a 56 bit key was provided.
