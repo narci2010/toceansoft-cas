@@ -16,6 +16,7 @@
 		<module>sso-management</module>
 		<module>sso-client-demo</module>
 		<module>sso-monitor</module>
+		<module>sso-support</module>
 	</modules>
 
 	<properties>
@@ -40,7 +41,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<id>maven2-release</id>
-			<url>http://nexus.toceansoft.com/repository/toceansoft/</url>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</repository>
 	</repositories>
 
@@ -50,8 +51,8 @@
 				<enabled>true</enabled>
 			</releases>
 			<id>maven2-release</id>
-			<!-- http://uk.maven.org/maven2/ -->
-			<url>http://nexus.toceansoft.com/repository/toceansoft/</url>
+			<!-- http://uk.maven.org/maven2/ http://nexus.toceansoft.com/repository/toceansoft/ -->
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 

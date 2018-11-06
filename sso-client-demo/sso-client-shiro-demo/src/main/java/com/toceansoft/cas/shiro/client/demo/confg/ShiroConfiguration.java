@@ -46,7 +46,7 @@ import lombok.extern.slf4j.Slf4j;
  * 对shiro的安全配置，是对cas的登录策略进行配置
  *
  * @author Narci.Lee
- * @date 2017/9/16
+ * @date 2018/9/16
  * @since 1.0.0
  */
 @Configuration

@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
  * github处理策略
  *
  * @author Narci.Lee
- * @date 2017/10/8
+ * @date 2018/10/8
  * @since 1.0.0
  */
 public class GitHubClientStrategy implements ClientStrategy {

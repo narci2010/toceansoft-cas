@@ -14,7 +14,7 @@ import com.toceansoft.cas.shiro.client.demo.core.PrincipalBindResolver;
  * github内存id取决器
  *
  * @author Narci.Lee
- * @date 2017/10/8
+ * @date 2018/10/8
  * @since 1.0.0
  */
 public class GitHubMemoryPrincipalBindResolver implements PrincipalBindResolver {

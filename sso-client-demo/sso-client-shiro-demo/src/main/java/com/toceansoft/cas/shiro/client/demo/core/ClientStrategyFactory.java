@@ -11,7 +11,7 @@ import java.util.Map;
  * 客户端存储器
  *
  * @author Narci.Lee
- * @date 2017/10/8
+ * @date 2018/10/8
  * @since 1.0.0
  */
 public class ClientStrategyFactory {

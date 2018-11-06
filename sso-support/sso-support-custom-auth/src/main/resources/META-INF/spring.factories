@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.toceansoft.cas.support.auth.config.CustomerAuthWebflowConfiguration,com.toceansoft.cas.support.auth.config.CustomAuthenticationEventExecutionPlanConfiguration

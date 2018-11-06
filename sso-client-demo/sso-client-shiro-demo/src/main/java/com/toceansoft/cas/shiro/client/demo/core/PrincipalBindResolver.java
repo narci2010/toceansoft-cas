@@ -10,7 +10,7 @@ import io.buji.pac4j.subject.Pac4jPrincipal;
  * 判断用户是否已经绑定
  *
  * @author Narci.Lee
- * @date 2017/10/8
+ * @date 2018/10/8
  * @since 1.0.0
  */
 public interface PrincipalBindResolver {

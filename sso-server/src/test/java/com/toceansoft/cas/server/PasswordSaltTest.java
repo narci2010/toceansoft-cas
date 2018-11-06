@@ -13,7 +13,7 @@ import org.junit.Test;
 
 /**
  * @author Narci.Lee
- * @date 2017/9/12
+ * @date 2018/9/12
  * @since JDK1.7
  */
 public class PasswordSaltTest {

@@ -20,7 +20,31 @@
 
 	<dependencies>
 		<!--mongodb存储客户端配置，持久化配置与客户端配置系统配置必须一致 -->
-
+		<!--<dependency> <groupId>org.apereo.cas</groupId> <artifactId>cas-server-support-mongo-service-registry</artifactId> 
+			<version>${cas.version}</version> </dependency> -->
+		<!--自定义校验器 -->
+		<dependency>
+			<groupId>com.toceansoft.cas</groupId>
+			<artifactId>sso-support-custom-auth</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!--单用户登录 -->
+		<dependency>
+			<groupId>com.toceansoft.cas</groupId>
+			<artifactId>sso-support-single-login</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!--校验码 -->
+		<dependency>
+			<groupId>com.toceansoft.cas</groupId>
+			<artifactId>sso-support-captcha</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.toceansoft.cas</groupId>
+			<artifactId>sso-support-ext-rest</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!--代理认证 -->
 		<dependency>
 			<groupId>org.apereo.cas</groupId>
@@ -115,7 +139,7 @@
 			<version>1.59</version>
 			<scope>provided</scope>
 		</dependency>
-				<dependency>
+		<dependency>
 			<groupId>org.apereo.cas</groupId>
 			<artifactId>cas-server-support-pm</artifactId>
 			<version>${cas.version}</version>
@@ -131,6 +155,13 @@
 			<artifactId>cas-server-core-webflow</artifactId>
 			<version>${cas.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apereo.cas</groupId>
+			<artifactId>cas-server-core-web-api</artifactId>
+			<version>${cas.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -141,12 +172,6 @@
 			<groupId>com.github.cage</groupId>
 			<artifactId>cage</artifactId>
 			<version>1.0</version>
-		</dependency>
-				<dependency>
-			<groupId>org.apereo.cas</groupId>
-			<artifactId>cas-server-core-web-api</artifactId>
-			<version>${cas.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 
