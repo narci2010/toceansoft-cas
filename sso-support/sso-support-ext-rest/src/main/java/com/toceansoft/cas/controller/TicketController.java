@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -185,6 +186,21 @@ public class TicketController {
 			re = new ResponseEntity<Ticket>(new Ticket("Invalid ticket or not exists."),
 					HttpStatus.MOVED_PERMANENTLY);
 		}
+		return re;
+	}
+
+	@DeleteMapping(value = "/v2/ticket")
+	public ResponseEntity<?> deleteTGTIdThruTGCCookie(final HttpServletRequest request) {
+		// 1. 此时的tgtId其实是一段包含tgtId的HTML代码
+		String tgtId = toceanCookieGenerator.getTicketGrantingTicketIdFromRequest(request);
+		LOGGER.debug("deleteTGTIdThruTGCCookie->tgtId:" + tgtId);
+		ResponseEntity<?> re = null;
+		if (tgtId == null) {
+			re = new ResponseEntity<Ticket>(new Ticket("TGTiD not found."), HttpStatus.NOT_FOUND);
+		} else {
+			re = ticketGrantingTicketResource.deleteTicketGrantingTicket(tgtId);
+		}
+
 		return re;
 	}
 
